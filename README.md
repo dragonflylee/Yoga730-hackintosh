@@ -1,11 +1,10 @@
 # Yoga-730-hackintosh
 
-This Clover config work for Lenovo Yoga 730-13IKB
+This OpenCore config work for Lenovo Yoga 730-13IKB
 
 ## Credits
 
-* [Clover EFI](https://sourceforge.net/projects/cloverefiboot/files/Bootable_ISO/) Boot
-* Config based on the files of [@Rehabman](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)
+* [OpenCore](https://github.com/acidanthera/OpenCorePkg) Boot
 * [Lilu.kext](https://github.com/acidanthera/Lilu/releases/latest)
 
 ## What is half working
