@@ -163,6 +163,8 @@
 			<true/>
 			<key>SyncRuntimePermissions</key>
 			<true/>
+			<key>DevirtualiseMmio</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
