@@ -12,8 +12,6 @@
 			<dict>
 				<key>FixHDA</key>
 				<true/>
-				<key>AddPNLF</key>
-				<true/>
 				<key>FixHPET</key>
 				<true/>
 				<key>FixIPIC</key>
@@ -25,54 +23,6 @@
 			</dict>
 			<key>Patches</key>
 			<array>
-				<dict>
-					<key>Comment</key>
-					<string>change HDAS to HDEF</string>
-					<key>Find</key>
-					<data>
-					SERBUw==
-					</data>
-					<key>Replace</key>
-					<data>
-					SERFRg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change B0D4 to HDAU</string>
-					<key>Find</key>
-					<data>
-					QjBENA==
-					</data>
-					<key>Replace</key>
-					<data>
-					SERBVQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HECI to IMEI</string>
-					<key>Find</key>
-					<data>
-					SEVDSQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					SU1FSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change GFX0 to IGPU</string>
-					<key>Find</key>
-					<data>
-					R0ZYMA==
-					</data>
-					<key>Replace</key>
-					<data>
-					SUdQVQ==
-					</data>
-				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>change EC0 to EC</string>
@@ -103,30 +53,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change _Q11 to XQ11</string>
-					<key>Find</key>
-					<data>
-					X1ExMQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WFExMQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change _Q12 to XQ12</string>
-					<key>Find</key>
-					<data>
-					X1ExMg==
-					</data>
-					<key>Replace</key>
-					<data>
-					WFExMg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
 					<key>Find</key>
 					<data>
@@ -139,23 +65,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>DropTables</key>
-		<array>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>MSDM</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>xh_rvp10</string>
-			</dict>
-		</array>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -174,13 +83,14 @@
 		<array>
 			<string>SSDT-XOSI.aml</string>
 			<string>SSDT-PS2K.aml</string>
+			<string>SSDT-PNLF.aml</string>
 			<string>SSDT-GPRW.aml</string>
 		</array>
 	</dict>
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>darkwake=0 nv_disable=1 -cdfon -disablegfxfirmware</string>
+		<string>nv_disable=1 -cdfon -disablegfxfirmware</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>HibernationFixup</key>
@@ -242,8 +152,6 @@
 			<string>Preboot</string>
 			<string>#Recovery</string>
 		</array>
-		<key>#Language</key>
-		<string>zh-Hans:0</string>
 		<key>Scan</key>
 		<dict>
 			<key>Entries</key>
@@ -268,44 +176,6 @@
 	<dict>
 		<key>AppleRTC</key>
 		<true/>
-		<key>ForceKextsToLoad</key>
-		<array>
-			<string>\System\Library\Extensions\IOGraphicsFamily.kext</string>
-		</array>
-		<key>KernelToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				ILniAAAADzA=
-				</data>
-				<key>Replace</key>
-				<data>
-				ILniAAAAkJA=
-				</data>
-			</dict>
-		</array>
-		<key>KextsToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>Enable TRIM for SSD</string>
-				<key>Find</key>
-				<data>
-				AEFQUExFIFNTRAA=
-				</data>
-				<key>Name</key>
-				<string>com.apple.iokit.IOAHCIBlockStorage</string>
-				<key>Replace</key>
-				<data>
-				AAAAAAAAAAAAAAA=
-				</data>
-			</dict>
-		</array>
 	</dict>
 	<key>Quirks</key>
 	<dict>
@@ -317,16 +187,6 @@
 		<true/>
 		<key>EnableSafeModeSlide</key>
 		<true/>
-		<key>EnableWriteUnprotector</key>
-		<true/>
-		<key>FuzzyMatch</key>
-		<true/>
-		<key>KernelCache</key>
-		<string>Auto</string>
-		<key>MmioWhitelist</key>
-		<array/>
-		<key>PowerTimeoutKernelPanic</key>
-		<true/>
 		<key>ProvideCustomSlide</key>
 		<true/>
 		<key>RebuildAppleMemoryMap</key>
@@ -337,11 +197,6 @@
 		<true/>
 		<key>ThirdPartyDrives</key>
 		<true/>
-	</dict>
-	<key>RtVariables</key>
-	<dict>
-		<key>#CsrActiveConfig</key>
-		<string>0x13</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
