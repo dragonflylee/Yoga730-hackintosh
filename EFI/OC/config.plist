@@ -30,50 +30,21 @@
 				<key>Path</key>
 				<string>SSDT-PNLF.aml</string>
 			</dict>
-		</array>
-		<key>Delete</key>
-		<array>
 			<dict>
-				<key>Comment</key>
-				<string>Delete xh_rvp10</string>
 				<key>Enabled</key>
 				<true/>
-				<key>OemTableId</key>
-				<data>eGhfcnZwMTA=</data>
-				<key>TableSignature</key>
-				<data>U1NEVA==</data>
+				<key>Path</key>
+				<string>SSDT-PLUG.aml</string>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>Drop DMAR</string>
 				<key>Enabled</key>
-				<true/>
-				<key>TableSignature</key>
-				<data>RE1BUg==</data>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-EC-USBX.aml</string>
 			</dict>
 		</array>
 		<key>Patch</key>
 		<array>
-			<dict>
-				<key>Comment</key>
-				<string>change HDAS to HDEF</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>SERBUw==</data>
-				<key>Replace</key>
-				<data>SERFRg==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change GFX0 to IGPU</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>R0ZYMA==</data>
-				<key>Replace</key>
-				<data>SUdQVQ==</data>
-			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>change EC0 to EC</string>
@@ -86,16 +57,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>change HECI to IMEI</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>SEVDSQ==</data>
-				<key>Replace</key>
-				<data>SU1FSQ==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>change _OSI to XOSI</string>
 				<key>Enabled</key>
 				<true/>
@@ -103,30 +64,6 @@
 				<data>X09TSQ==</data>
 				<key>Replace</key>
 				<data>WE9TSQ==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change _Q11 to XQ11</string>
-				<key>Count</key>
-				<integer>1</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>X1ExMQ==</data>
-				<key>Replace</key>
-				<data>WFExMQ==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change _Q12 to XQ12</string>
-				<key>Count</key>
-				<integer>1</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>X1ExMg==</data>
-				<key>Replace</key>
-				<data>WFExMg==</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -154,7 +91,7 @@
 			<key>EnableSafeModeSlide</key>
 			<true/>
 			<key>EnableWriteUnprotector</key>
-			<true/>
+			<false/>
 			<key>ProvideCustomSlide</key>
 			<true/>
 			<key>ProvideMaxSlide</key>
@@ -163,8 +100,6 @@
 			<true/>
 			<key>SyncRuntimePermissions</key>
 			<true/>
-			<key>DevirtualiseMmio</key>
-			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -452,6 +387,22 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>BundlePath</key>
+				<string>BrightnessKeys.kext</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/BrightnessKeys</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string>15.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
 				<string>BrcmPatchRAM3.kext</string>
 				<key>Enabled</key>
 				<false/>
@@ -477,7 +428,7 @@
 				<string>Contents/Info.plist</string>
 			</dict>
 		</array>
-		<key>Force</key>
+		<key>Block</key>
 		<array>
 			<dict>
 				<key>Arch</key>
@@ -490,80 +441,22 @@
 				<string>com.apple.driver.AppleIntelLpssI2CController</string>
 			</dict>
 		</array>
-		<key>Force</key>
-		<array>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
-				<string>System/Library/Extensions/IOGraphicsFamily.kext</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/IOGraphicsFamily</string>
-				<key>Identifier</key>
-				<string>com.apple.iokit.IOGraphicsFamily</string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-		</array>
-		<key>Patch</key>
-		<array>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>Base</key>
-				<string>__ZN8AppleRTC18setupDateTimeAlarmEPK11RTCDateTime</string>
-				<key>Comment</key>
-				<string>Disable RTC wake scheduling</string>
-				<key>Count</key>
-				<integer>1</integer>
-				<key>Enabled</key>
-				<false/>
-				<key>Find</key>
-				<data></data>
-				<key>Identifier</key>
-				<string>com.apple.driver.AppleRTC</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string>19.0.0</string>
-				<key>Replace</key>
-				<data>ww==</data>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>Comment</key>
-				<string>Enable TRIM for SSD</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Find</key>
-				<data>AEFQUExFIFNTRAA=</data>
-				<key>Identifier</key>
-				<string>com.apple.driver.IOAHCIBlockStorage</string>
-				<key>MinKernel</key>
-				<string>19.0.0</string>
-				<key>Replace</key>
-				<data>AAAAAAAAAAAAAAA=</data>
-			</dict>
-		</array>
 		<key>Quirks</key>
 		<dict>
 			<key>AppleXcpmCfgLock</key>
 			<true/>
 			<key>DisableIoMapper</key>
 			<true/>
+			<key>CustomSMBIOSGuid</key>
+			<true/>
 			<key>DisableLinkeditJettison</key>
 			<true/>
 			<key>DisableRtcChecksum</key>
-			<true/>
+			<false/>
 			<key>PanicNoKextDump</key>
 			<true/>
 			<key>PowerTimeoutKernelPanic</key>
 			<true/>
-			<key>SetApfsTrimTimeout</key>
-			<integer>-1</integer>
 			<key>ThirdPartyDrives</key>
 			<true/>
 		</dict>
@@ -580,11 +473,12 @@
 	<key>Misc</key>
 	<dict>
 		<key>BlessOverride</key>
-		<array/>
+		<array>
+			<string>\EFI\Microsoft\Boot\bootmgfw.efi</string>
+			<string>\EFI\debian\grubx64.efi</string>
+		</array>
 		<key>Boot</key>
 		<dict>
-			<key>ConsoleAttributes</key>
-			<integer>0</integer>
 			<key>HibernateMode</key>
 			<string>Auto</string>
 			<key>HideAuxiliary</key>
@@ -598,53 +492,28 @@
 			<key>PickerAudioAssist</key>
 			<false/>
 			<key>PickerMode</key>
-			<string>Builtin</string>
+			<string>External</string>
 			<key>PickerVariant</key>
 			<string>Auto</string>
 			<key>PollAppleHotKeys</key>
 			<true/>
 			<key>ShowPicker</key>
 			<true/>
-			<key>TakeoffDelay</key>
-			<integer>0</integer>
 			<key>Timeout</key>
 			<integer>5</integer>
 		</dict>
-		<key>Debug</key>
-		<dict>
-			<key>DisplayDelay</key>
-			<integer>0</integer>
-			<key>DisplayLevel</key>
-			<integer>2147483650</integer>
-			<key>Target</key>
-			<integer>0</integer>
-		</dict>
-		<key>Entries</key>
-		<array/>
 		<key>Security</key>
 		<dict>
 			<key>AllowNvramReset</key>
 			<true/>
 			<key>AllowSetDefault</key>
 			<false/>
-			<key>ApECID</key>
-			<integer>0</integer>
 			<key>AuthRestart</key>
 			<true/>
 			<key>BlacklistAppleUpdate</key>
 			<true/>
-			<key>DmgLoading</key>
-			<string>Any</string>
-			<key>EnablePassword</key>
-			<false/>
 			<key>ExposeSensitiveData</key>
 			<integer>6</integer>
-			<key>HaltLevel</key>
-			<integer>2147483648</integer>
-			<key>PasswordHash</key>
-			<data></data>
-			<key>PasswordSalt</key>
-			<data></data>
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
@@ -662,7 +531,7 @@
 				<key>StartupMute</key>
 				<data>AQ==</data>
 				<key>boot-args</key>
-				<string>nv_disable=1 -cdfon -disablegfxfirmware</string>
+				<string>-v nv_disable=1 -cdfon -disablegfxfirmware</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
@@ -690,8 +559,14 @@
 		<false/>
 		<key>Generic</key>
 		<dict>
+			<key>MLB</key>
+			<string></string>
 			<key>SystemProductName</key>
 			<string>MacBookPro14,1</string>
+			<key>SystemSerialNumber</key>
+			<string></string>
+			<key>SystemUUID</key>
+			<string></string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -721,25 +596,6 @@
 			<key>MinVersion</key>
 			<integer>-1</integer>
 		</dict>
-		<key>Audio</key>
-		<dict>
-			<key>AudioCodec</key>
-			<integer>0</integer>
-			<key>AudioDevice</key>
-			<string>PciRoot(0x0)/Pci(0x1f,0x3)</string>
-			<key>AudioOut</key>
-			<integer>0</integer>
-			<key>AudioSupport</key>
-			<false/>
-			<key>MinimumVolume</key>
-			<integer>20</integer>
-			<key>PlayChime</key>
-			<string>Auto</string>
-			<key>SetupDelay</key>
-			<integer>0</integer>
-			<key>VolumeAmplifier</key>
-			<integer>128</integer>
-		</dict>
 		<key>ConnectDrivers</key>
 		<true/>
 		<key>Drivers</key>
@@ -760,12 +616,6 @@
 			<true/>
 			<key>KeySupportMode</key>
 			<string>Auto</string>
-			<key>KeySwap</key>
-			<false/>
-			<key>PointerSupport</key>
-			<false/>
-			<key>PointerSupportMode</key>
-			<string>ASUS</string>
 			<key>TimerResolution</key>
 			<integer>50000</integer>
 		</dict>
@@ -787,14 +637,10 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
-			<key>ExitBootServicesDelay</key>
-			<integer>0</integer>
 			<key>ReleaseUsbOwnership</key>
 			<true/>
 			<key>RequestBootVarRouting</key>
 			<true/>
-			<key>TscSyncTimeout</key>
-			<integer>0</integer>
 		</dict>
 	</dict>
 </dict>
