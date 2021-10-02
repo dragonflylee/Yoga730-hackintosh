@@ -475,14 +475,24 @@
 		<key>BlessOverride</key>
 		<array>
 			<string>\EFI\Microsoft\Boot\bootmgfw.efi</string>
-			<string>\EFI\debian\grubx64.efi</string>
+		</array>
+		<key>Entries</key>
+		<array>
+			<dict>
+				<key>Enabled</key>
+				<true/>
+				<key>Name</key>
+				<string>Debian</string>
+				<key>Path</key>
+				<string>\EFI\debian\grubx64.efi</string>
+			</dict>
 		</array>
 		<key>Boot</key>
 		<dict>
 			<key>HibernateMode</key>
 			<string>Auto</string>
 			<key>HideAuxiliary</key>
-			<true/>
+			<false/>
 			<key>LauncherOption</key>
 			<string>Full</string>
 			<key>LauncherPath</key>
