@@ -198,6 +198,11 @@
 		<key>ThirdPartyDrives</key>
 		<true/>
 	</dict>
+	<key>#RtVariables</key>
+	<dict>
+		<key>CsrActiveConfig</key>
+		<string>0x13</string>
+	</dict>
 	<key>SystemParameters</key>
 	<dict>
 		<key>InjectKexts</key>
